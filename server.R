@@ -6,7 +6,7 @@ mtcars$am[mtcars$am == 0] <- "Automatic"
 mtcars$am[mtcars$am == 1] <- "Manual"
 
 ## Build a prediction model on myData
-mod.fit <- lm(mpg ~ am + log(cyl * disp * hp * wt), mtcars)
+mod.fit <- lm(mpg ~ am + log(wt) + log(cyl * disp * hp), mtcars)
 
 ## Define server logic for application that predicts miles per galon
 shinyServer(function(input, output){
